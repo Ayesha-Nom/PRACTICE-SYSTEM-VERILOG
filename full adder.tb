@@ -1,0 +1,34 @@
+  // Code your testbench here
+// or browse Examples
+module Adder_tb;
+  logic a1;
+    logic b1;
+  logic cin1;
+    logic sum1;
+    logic cout1;
+  Adder gate1(.a(a1),      //relate tb with design
+              .b(b1),
+              .cin(cin1),
+              .sum(sum1),
+              .cout(cout1));
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars(1);
+    end
+  initial begin
+    a1=1'b0;
+    b1=1'b0;
+    cin1=1'b0;
+
+    #2
+     a1=1'b1;
+    b1=1'b0;
+    cin1=1'b0;
+#2
+    a1=1'b1;
+    b1=1'b1;
+    cin1=1'b0;
+    #2 $stop();  //output after 2 ms delay
+    #2 $finish(); 
+  end 
+endmodule
