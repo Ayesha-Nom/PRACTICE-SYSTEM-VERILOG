@@ -1,0 +1,28 @@
+// Code your testbench here
+// or browse Examples
+module Mux_tb;
+  logic a1;
+  logic b1;
+  logic selection1;
+  logic c1;
+  //aab hum relate krwaengy
+  Mux op(.a(a1),
+         .b(b1),
+         .selection(selection1),
+         .c(c1));
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars(1);
+  end
+  initial begin
+    a1=1'b0;
+    b1=0'b1;
+    selection1=1'b0;
+    #2
+    a1=1'b1;
+    b1=0'b0;
+    selection1=1'b1;
+    #4 $stop();
+    #4 $finish();
+  end
+endmodule
