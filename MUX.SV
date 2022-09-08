@@ -1,4 +1,5 @@
 // Code your design here
+//mux with ternary operator
 module ternary_operator(a,b,s,ot);
   input logic a;
   input logic b;
