@@ -1,0 +1,45 @@
+// Code your testbench here
+// or browse Examples
+// Code your testbench here
+// or browse Examples
+// Code your testbench here
+// or browse Examples
+module Basic_op_tb;  //Declaration Testbench
+  logic [1:0] a1;
+  logic [1:0] b1;
+  logic [1:0] s1;
+  logic [1:0] AD1;
+  logic [1:0] Or1;
+  logic [1:0] Xor1;
+  logic [1:0] Nor1;
+  Basic_op Op(.a(a1),   //Relate Testbench with Design
+              .b(b1), 
+              .s(s1),
+              .AD(AD1),
+              .Or(Or1),
+              .Xor(Xor1),
+              .Nor(Nor1)); 
+  initial begin 
+    $dumpfile("dump.vcd"); 
+    $dumpvars(1); 
+  end 
+  initial begin 
+    a1=2'b00;   //bit'binaryvalue
+    b1=2'b01;
+    s1=2'b00;
+    #1 
+    a1=2'b01;   //bit'binaryvalue
+    b1=2'b10;
+    s1=2'b01;
+    #1
+    a1=2'b10;   //bit'binaryvalue
+    b1=2'b11;
+    s1=2'b11;
+    #1
+    a1=2'b11;
+    b1=2'b11;
+    s1=2'b10;
+    #5 $stop();  //output after 5 ms delay
+    #5 $finish(); 
+  end 
+endmodule
