@@ -1,0 +1,31 @@
+// Code your testbench here
+// or browse Examples
+module flipflop_tb;
+  reg clk;
+  reg reset;
+  reg d;
+  wire Q;
+  wire Qb;
+  flipflop DFF(.clk(clk),
+               .reset(reset),
+               .d(d),
+               .Q(Q),
+               .Qb(Qb));
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars(1);
+    clk=0;
+  end
+  initial begin
+    clk=0;
+    reset=1;
+    d=0;
+    #6
+      clk=1;
+    reset=0;
+    d=1;
+    #3 $stop();
+    #3 $finish();
+  end
+endmodule
+    
