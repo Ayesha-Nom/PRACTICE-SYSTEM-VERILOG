@@ -1,0 +1,21 @@
+ // Code your testbench here
+// or browse Examples
+module counter_tb;
+  logic a;
+  logic [8:0]count;
+  logic clk;
+  counter tb(.clk(clk),
+             .a(a),
+             .count(count));
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars(1);
+    clk=0;
+    a=1;
+    #600 $finish();
+  end
+  always
+    #250 a=~a;
+  always
+    #1 clk=~clk;
+endmodule
