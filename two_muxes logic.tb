@@ -1,0 +1,37 @@
+// Code your testbench here
+// or browse Examples
+module two_bit_mux_tb;
+  logic a1;
+  logic b1;
+  logic selection_1;
+  logic o_1;
+  logic c1;
+  logic selection_2;
+  logic o_2;
+  two_bit_mux mux1(.a(a1),
+               .b(b1),
+               .selection_1(selection_1),
+               .o_1(o_1),
+               .c(c1),
+               .selection_2(selection_2),
+               . o_2(o_2));
+                 initial begin
+$dumpfile("dump.vcd");
+$dumpvars(1);
+                 end
+  initial begin
+    a1=2'b0;
+    b1=2'b1;
+    selection_1=2'b0;
+    c1=2'b1;
+    selection_2=2'b0;
+    #2
+    a1=2'b0;
+    b1=2'b1;
+    selection_1=2'b0;
+    c1=2'b1;
+    selection_2=2'b1;
+    #3 $stop();
+    #3 $finish();
+  end
+endmodule
